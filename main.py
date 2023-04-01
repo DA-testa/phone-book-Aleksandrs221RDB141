@@ -29,15 +29,14 @@ def process_queries(queries):
         elif cur_query.type == 'del':
             if cur_query.number in contacts.keys():
                 contacts.pop(cur_query.number)
-                break     
-        else:
-            response = 'not found'
+                break
+        elif cur_query.type == 'find':
             if cur_query.number in contacts.keys():
                 response =(contacts.get(cur_query.number))
-                break
+            else:
+                response = 'not found'
             result.append(response)
     return result
 
 if __name__ == '__main__':
     write_responses(process_queries(read_queries()))
-
