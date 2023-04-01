@@ -24,12 +24,10 @@ def process_queries(queries):
             # we should rewrite contact's name
             if cur_query.number in contacts.keys():
                 contacts.pop(cur_query.number)
-                break
             contacts[cur_query.number]=cur_query.name
         elif cur_query.type == 'del':
             if cur_query.number in contacts.keys():
                 contacts.pop(cur_query.number)
-                break
         elif cur_query.type == 'find':
             if cur_query.number in contacts.keys():
                 response =(contacts.get(cur_query.number))
